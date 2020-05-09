@@ -172,23 +172,42 @@
     </div>
     <form>
         <div class="form-group">
-          <label for="usr">Name:</label>
-          <input type="text" class="form-control" id="usr">
+          <label for="name">Name:</label>
+          <input type="text" class="form-control" id="name">
         </div>
         <div class="form-group">
-          <label for="pwd">Phone Number</label>
-          <input type="password" class="form-control" id="pwd">
+          <label for="phoneNumber">Phone Number</label>
+          <input type="text" class="form-control" id="phoneNumber">
         </div>
         <div class="form-group">
-            <label for="pwd">Email</label>
-            <input type="password" class="form-control" id="pwd">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="email">
           </div>
           <div class="form-group">
-            <label for="pwd">Unique ID</label>
-            <input type="password" class="form-control" id="pwd">
+            <label for="uniqueID">Unique ID</label>
+            <input type="text" class="form-control" id="uniqueID">
             <button type="button" class="btn btn-primary">Primary</button>
           </div>
       </form>
     </div>
+
+
+    <script type="text/javascript">
+        $("#add-btn").on("click", function(event) {
+          event.preventDefault();
+          var newTable = {
+            name: $("#name").val().trim(),
+            phone: $("#phoneNumber").val().trim(),
+            email: $("#email").val().trim(),
+            uniqueID: $("#uniqueID").val().trim()
+          };
+    
+          $.post("/api/tables", newTable)
+            .then(function(data) {
+              console.log("home.html", data);
+              alert("Adding reservation...");
+            });
+        });
+    </script>
 </body>
 </html>
