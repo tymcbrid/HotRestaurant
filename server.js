@@ -1,34 +1,19 @@
-var express = require("express");
-var path = require("path");
+const express = require("express");
+const path = require("path");
 
-var app = express();
-var PORT = process.env.PORT || 3000;
+let app = express();
+let PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-var newVar = [
+let tables = [
     {
-      prop1: "a",
-      prop2: "a",
-      prop3: "a",
-      prop4: 900,
-      prop5: 2000
+      uniqueID: "a",
+      Name: "a",
+      phoneNumber: "a",
+      email: 900,
     },
-    {
-    prop1: "a",
-    prop2: "a",
-    prop3: "a",
-    prop4: 900,
-    prop5: 2000
-    },
-    {
-    prop1: "a",
-    prop2: "a",
-    prop3: "a",
-    prop4: 900,
-    prop5: 2000
-    }
   ];
 
   app.get("/", function(req, res) {
@@ -44,9 +29,14 @@ var newVar = [
   });
 
   app.get("/api/tables", function(req, res) {
-    res.sendFile(path.join(__dirname, "???.html"));
+    return res.json(tables);
   });
 
   app.post("/api/tables", function(res, req){
+    let newTable = req.body;
 
+    console.log(newTable);
+    tables.push(newTable);
+
+    res.json(newTable);
   })
