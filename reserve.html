@@ -90,8 +90,13 @@
 
 
 
-  
+  $.get("/api/tables", function(req, res) {
+    return res.json(tables);
+  });
+
 console.log(tables)
+
+tableLen = tables.length
 
 
 	$(".submit").on("click", function(){
@@ -115,11 +120,7 @@ console.log(tables)
 		// We use this instead of explicitly saying the URL is localhost:3001 because the url will change when we deploy.
 		var currentURL = window.location.origin;
 
-		$.get("/api/tables", function(req, res) {
-    return res.json(tables);
-  });
-
-		if(tables.length <= 5){
+		if(tableLen < 5){
 					alert("Yay! You are officially booked!")
 					$.post("/api/tables", newTable)
 					.then(function(data){
