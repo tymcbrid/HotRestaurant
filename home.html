@@ -186,14 +186,14 @@
           <div class="form-group">
             <label for="uniqueID">Unique ID</label>
             <input type="text" class="form-control" id="uniqueID">
-            <button type="button" class="btn btn-primary">Submit</button>
+            <button type="button" class="btn btn-primary" id="submitButton">Submit</button>
           </div>
       </form>
     </div>
 
 
     <script type="text/javascript">
-        $("#add-btn").on("click", function(event) {
+        $("#submitButton").on("click", function(event) {
           event.preventDefault();
           var newTable = {
             name: $("#name").val().trim(),
