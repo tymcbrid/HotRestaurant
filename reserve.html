@@ -90,10 +90,7 @@
 
 
 
-  $.get("/api/tables", function(req, res) {
-    return res.json(tables);
-  });
-
+  
 console.log(tables)
 
 
@@ -117,6 +114,10 @@ console.log(tables)
 		// Here we get the location of the root page.
 		// We use this instead of explicitly saying the URL is localhost:3001 because the url will change when we deploy.
 		var currentURL = window.location.origin;
+
+		$.get("/api/tables", function(req, res) {
+    return res.json(tables);
+  });
 
 		if(tables.length <= 5){
 					alert("Yay! You are officially booked!")
