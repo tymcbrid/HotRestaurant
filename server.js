@@ -8,6 +8,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 let tables = [];
+let waitlist = [];
 
   app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "home.html"));
@@ -25,9 +26,13 @@ let tables = [];
     return res.json(tables);
   });
 
+  app.get("/api/waitlist", function(req, res) {
+    return res.json(tables);
+  });
+
   app.post("/api/tables", function(req, res){
     var newTable = req.body;
-
+    
     console.log(newTable);
     tables.push(newTable);
 

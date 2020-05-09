@@ -88,6 +88,15 @@
 	// Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
 	// In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
 
+
+
+  $.get("/api/tables", function(req, res) {
+    return res.json(tables);
+  });
+
+console.log(tables)
+
+
 	$(".submit").on("click", function(){
 
 		// Here we grab the form elements
@@ -109,28 +118,43 @@
 		// We use this instead of explicitly saying the URL is localhost:3001 because the url will change when we deploy.
 		var currentURL = window.location.origin;
 
-	    $.post("/api/tables", newTable)
-	    .then(function(data){
+		if(tables.length <= 5){
+					alert("Yay! You are officially booked!")
+					$.post("/api/tables", newTable)
+					.then(function(data){
 
-	    	// If a table is available... tell user they are booked.
-	    	if(data == true){
-	    		alert("Yay! You are officially booked!")
-	    	}
+					$('#reserve_name').val("");
+					$('#reserve_phone').val("");
+					$('#reserve_email').val("");
+					$('#reserve_uniqueID').val("");
+	    });}
+	    	else{
+					alert("Sorry you are on the wait list")
+					$.post("/api/waitlist", newTable)
+					.then(function(data){
 
-	    	// If a table is available... tell user they on the waiting list.
-	    	if(data == false){
-	    		alert("Sorry you are on the wait list")
-	    	}
+					$('#reserve_name').val("");
+					$('#reserve_phone').val("");
+					$('#reserve_email').val("");
+					$('#reserve_uniqueID').val("");
+	    	})}
 
-	    	// Clear the form when submitting
-    		$('#reserve_name').val("");
-			$('#reserve_phone').val("");
-			$('#reserve_email').val("");
-			$('#reserve_uniqueID').val("");
 
-	    });
 
-return false;
+	    // $.post("/api/tables", newTable)
+	    // .then(function(data){
+
+	    // 	// If a table is available... tell user they are booked.
+
+	    // 	// Clear the form when submitting
+    	// $('#reserve_name').val("");
+			// $('#reserve_phone').val("");
+			// $('#reserve_email').val("");
+			// $('#reserve_uniqueID').val("");
+
+	    // });
+
+// return false;
 
 });
 
