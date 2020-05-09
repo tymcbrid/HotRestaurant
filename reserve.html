@@ -120,41 +120,41 @@ tableLen = tables.length
 		// We use this instead of explicitly saying the URL is localhost:3001 because the url will change when we deploy.
 		var currentURL = window.location.origin;
 
-		if(tableLen < 5){
-					alert("Yay! You are officially booked!")
-					$.post("/api/tables", newTable)
-					.then(function(data){
+		// if(tableLen < 5){
+		// 			alert("Yay! You are officially booked!")
+		// 			$.post("/api/tables", newTable)
+		// 			.then(function(data){
 
-					$('#reserve_name').val("");
-					$('#reserve_phone').val("");
-					$('#reserve_email').val("");
-					$('#reserve_uniqueID').val("");
-	    });}
-	    	else{
-					alert("Sorry you are on the wait list")
-					$.post("/api/waitlist", newTable)
-					.then(function(data){
+		// 			$('#reserve_name').val("");
+		// 			$('#reserve_phone').val("");
+		// 			$('#reserve_email').val("");
+		// 			$('#reserve_uniqueID').val("");
+	  //   });}
+	  //   	else{
+		// 			alert("Sorry you are on the wait list")
+		// 			$.post("/api/waitlist", newTable)
+		// 			.then(function(data){
 
-					$('#reserve_name').val("");
-					$('#reserve_phone').val("");
-					$('#reserve_email').val("");
-					$('#reserve_uniqueID').val("");
-	    	})}
+		// 			$('#reserve_name').val("");
+		// 			$('#reserve_phone').val("");
+		// 			$('#reserve_email').val("");
+		// 			$('#reserve_uniqueID').val("");
+	  //   	})}
 
 
 
-	    // $.post("/api/tables", newTable)
-	    // .then(function(data){
+	    $.post("/api/tables", newTable)
+	    .then(function(data){
 
-	    // 	// If a table is available... tell user they are booked.
+	    	// If a table is available... tell user they are booked.
 
-	    // 	// Clear the form when submitting
-    	// $('#reserve_name').val("");
-			// $('#reserve_phone').val("");
-			// $('#reserve_email').val("");
-			// $('#reserve_uniqueID').val("");
+	    	// Clear the form when submitting
+    	$('#reserve_name').val("");
+			$('#reserve_phone').val("");
+			$('#reserve_email').val("");
+			$('#reserve_uniqueID').val("");
 
-	    // });
+	    });
 
 // return false;
 
