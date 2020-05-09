@@ -7,17 +7,10 @@ let PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-let tables = [
-    {
-      uniqueID: "a",
-      Name: "a",
-      phoneNumber: "a",
-      email: 900,
-    },
-  ];
+let tables = [];
 
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "index.html"));
+    res.sendFile(path.join(__dirname, "home.html"));
   });
 
   app.get("/tables", function(req, res) {
@@ -32,11 +25,15 @@ let tables = [
     return res.json(tables);
   });
 
-  app.post("/api/tables", function(res, req){
-    let newTable = req.body;
+  app.post("/api/tables", function(req, res){
+    var newTable = req.body;
 
     console.log(newTable);
     tables.push(newTable);
 
     res.json(newTable);
   })
+
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
