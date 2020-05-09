@@ -7,6 +7,7 @@
     <title>Hot Restaurant</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
@@ -22,19 +23,19 @@
     h2 {
       font-size: 24px;
       text-transform: uppercase;
-      color: #303030;
+      color: black;
       font-weight: 600;
       margin-bottom: 30px;
     }
     h4 {
       font-size: 19px;
       line-height: 1.375em;
-      color: #303030;
+      color: black;
       font-weight: 400;
       margin-bottom: 30px;
     }
     .jumbotron {
-      background-color: #F4511E;
+      background-color: whitesmoke;
       color: #fff;
       padding: 100px 25px;
       font-family: Montserrat, sans-serif;
@@ -63,7 +64,7 @@
       border-color: whitesmoke;
     }
     .carousel-indicators li.active {
-      background-color: #F4511E;
+      background-color: whitesmoke;
     }
     .item h4 {
       font-size: 19px;
@@ -71,32 +72,7 @@
       font-weight: 400;
       font-style: italic;
       margin: 70px 0;
-    }
-    .item span {
-      font-style: normal;
-    }
-    .panel {
-      border: 1px solid #F4511E;
-      border-radius:0 !important;
-      transition: box-shadow 0.5s;
-    }
-    .panel:hover {
-      box-shadow: 5px 0px 40px rgba(0,0,0, .2);
-    }
-    .panel-footer .btn:hover {
-      border: 1px solid #F4511E;
-      background-color: #fff !important;
-      color: #F4511E;
-    }
-    .panel-heading {
-      color: #fff !important;
-      background-color: #F4511E !important;
-      padding: 25px;
-      border-bottom: 1px solid transparent;
-      border-top-left-radius: 0px;
-      border-top-right-radius: 0px;
-      border-bottom-left-radius: 0px;
-      border-bottom-right-radius: 0px;
+   
     }
     .panel-footer {
       background-color: white !important;
@@ -110,13 +86,13 @@
     }
     .panel-footer .btn {
       margin: 15px 0;
-      background-color: #F4511E;
+      background-color: whitesmoke;
       color: #fff;
     }
     footer .glyphicon {
       font-size: 20px;
       margin-bottom: 20px;
-      color: #F4511E;
+      color: whitesmoke;
     }
     .slideanim {visibility:hidden;}
     .slide {
@@ -165,11 +141,17 @@
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
     <div class="container">
     <div class="jumbotron text-center">
+      <i class="fas fa-flame"></i>
       <h1>Hot Restaurant</h1>
       <p>Make your reservation</p>
+<<<<<<< HEAD
+      <button type="button" class="btn btn-primary">View tables</button>
+      <i class="fas fa-home-lg-alt"></i> 
+=======
         <a href="/tables"><button type="button" class="btn btn-primary">View tables</button></a>
         <a href="/reserve"><button type="button" class="btn btn-primary">Make Reservation</button></a>
       <i class="fas fa-home-lg-alt"></i>
+>>>>>>> 55021ca6c7d293d9694d78018c47964ef94e1976
     </div>
     <!-- <form>
         <div class="form-group">
@@ -189,7 +171,12 @@
             <input type="text" class="form-control" id="uniqueID">
             <button type="button" class="btn btn-primary" id="submitButton">Submit</button>
           </div>
+<<<<<<< HEAD
+      </form>
+      <p><a href="" target="_blank">API Table Link| API Wait List </a></p>
+=======
       </form> -->
+>>>>>>> 55021ca6c7d293d9694d78018c47964ef94e1976
     </div>
 
 
